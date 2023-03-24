@@ -1,0 +1,21 @@
+{
+  "name": "user-ticketing-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "users.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alonidiom/user-ticketing-network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alonidiom/user-ticketing-network/issues"
+  },
+  "homepage": "https://github.com/alonidiom/user-ticketing-network#readme"
+}

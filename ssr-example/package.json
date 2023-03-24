@@ -1,0 +1,24 @@
+{
+  "name": "ssr-example",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cookie": "^8.3.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/view": "^7.4.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "fastify": "^4.15.0",
+    "http-status": "^1.6.2",
+    "jsonwebtoken": "^9.0.0",
+    "lodash-es": "^4.17.21"
+  }
+}
