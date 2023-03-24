@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+  </head>
+  <body>
+    <h1>Log In</h1>
+    <div>
+      <form action="/login" method="post">
+        <div>
+          <label>
+            Email:
+            <input name="email" type="email" required />
+          </label>
+        </div>
+        <div>
+          <label>
+            Password:
+            <input name="password" type="password" required />
+          </label>
+        </div>
+        <div style="color: red"><%= error ?? "" %></div>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+    <a href="/signup">Sign Up</a>
+  </body>
+</html>

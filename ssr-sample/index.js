@@ -36,6 +36,9 @@ app.post("/login", async (req, reply) => {
     reply.cookie("user", token);
     return reply.redirect(http.SEE_OTHER, "/");
   } catch (error) {
+    if (Number.isInteger(error)) {
+      reply.status(error);
+    }
     return reply.view("./views/login.ejs", {
       error: error === http.UNAUTHORIZED ? "Bad email or password" : "???",
     });

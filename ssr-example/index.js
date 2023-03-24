@@ -36,6 +36,9 @@ app.post("/login", async (req, reply) => {
     reply.cookie("user", token);
     return reply.redirect(http.SEE_OTHER, "/");
   } catch (error) {
+    if (Number.isInteger(error)) {
+      reply.status(error);
+    }
     return reply.view("./views/login.ejs", {
       error: error === http.UNAUTHORIZED ? "Bad email or password" : "???",
     });
@@ -75,6 +78,13 @@ app.get("/signup", (req, reply) => {
 app.post("/logout", async (req, reply) => {
   await users.logout({ token: req.cookies.user });
   return reply.clearCookie("user").redirect(http.SEE_OTHER, "/login");
+});
+
+app.get("/api/me", (req, rep) => {
+  if (!req.user) {
+    throw http.UNAUTHORIZED;
+  }
+  return { ok: true, user: req.user };
 });
 
 app.get("/", (req, reply) => {
