@@ -16,7 +16,7 @@ const app = fastify({ logger: true });
 app.register(fastifyView, { engine: { ejs } });
 app.register(fastifyForms);
 app.register(fastifyCookie, { secret: process.env.SECRET });
-app.addHook("onRequest", async function (request, reply) {
+app.addHook("onRequest", async function (request) {
   const token = request.cookies.user;
   if (token) {
     try {
@@ -74,7 +74,8 @@ app.get("/signup", (req, reply) => {
 
 app.post("/logout", async (req, reply) => {
   await users.logout({ token: req.cookies.user });
-  return reply.clearCookie("user").redirect(http.SEE_OTHER, "/login");
+  reply.clearCookie("user");
+  return reply.redirect(http.SEE_OTHER, "/login");
 });
 
 app.get("/", (req, reply) => {
@@ -91,4 +92,4 @@ app.setErrorHandler(function (error, _request, reply) {
     .send({ ok: false });
 });
 
-app.listen({ port: +process.env.PORT }, () => console.log("SSR Example is up"));
+app.listen({ port: +process.env.PORT }, () => console.log("SSR Sample is up"));
